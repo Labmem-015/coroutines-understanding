@@ -1,0 +1,16 @@
+# clangd 19
+---
+CompileFlags:
+  CompilationDatabase: ./build/debug
+Diagnostics:
+  ClangTidy:
+    FastCheckFilter: None
+  MissingIncludes: None
+  UnusedIncludes: Strict
+---
+If:
+  PathMatch: src/main.hpp
+Diagnostics:
+  Suppress:
+    - unused-includes
+...
