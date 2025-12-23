@@ -2,6 +2,7 @@
 ---
 CompileFlags:
   CompilationDatabase: ./build/debug
+  # Compiler: clang-cl
 Diagnostics:
   ClangTidy:
     FastCheckFilter: None

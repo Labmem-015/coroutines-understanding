@@ -11,11 +11,9 @@ if(NOT DEFINED ENV{VCPKG_ROOT})
 	message(FATAL_ERROR "VCPKG_ROOT is not defined!")
 endif()
 
+
 add_executable(ex1 src/main.cpp)
 target_precompile_headers(ex1 PUBLIC src/main.hpp)
 
-# add_custom_target(run_after_generation ALL
-#     COMMAND ${CMAKE_COMMAND} -E create_symlink
-#         ${CMAKE_BINARY_DIR}/compile_commands.json
-#         ${PROJECT_SOURCE_DIR}/compile_commands.json
-# )
+find_package(nlohmann_json CONFIG REQUIRED)
+target_link_libraries(ex1 PUBLIC nlohmann_json::nlohmann_json)
