@@ -1,25 +1,16 @@
-template <typename T>
-struct AwaitableEntity {
-    class Awaiter
-    bool await_ready() const noexcept {
-        return true;
-    }
+#include "awaitable.hpp"
+#include "simple_coroutine.hpp"
 
-    void await_suspend(std::coroutine_handle<> handle) noexcept {
-        
-    }
-
-    operator co_await()
-};
-
-void foo() {
+void foo_coroutine() {
     // call async I/O function here
     // co_await ...;
+    std::cout << "This is couroutine" << std::endl;
+    co_return;
 }
 
 int main(int argc, char* argv[]) {
     std::cout << "Hello, World!" << std::endl;
-    foo();
+    foo_coroutine();
     std::cout << "The end" << std::endl;
     return EXIT_SUCCESS;
 }
