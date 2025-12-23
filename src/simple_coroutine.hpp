@@ -2,13 +2,10 @@
 
 namespace simple_coro {
 
-struct task;
-
-void foo_coroutine() {
-    // call async I/O function here
-    // co_await ...;
-    std::cout << "This is couroutine" << std::endl;
-    co_return;
-}
+struct task {
+    struct promise_type {
+        
+    };
+};
     
 } // namespace simple_coro
