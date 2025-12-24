@@ -5,7 +5,7 @@ namespace simple_coro {
 template<typename T>
 struct Task {
     struct promise_type;
-    using coro_handle_t = std::couroutine_handle<promise_type>;
+    using coro_handle_t = std::coroutine_handle<promise_type>;
     struct promise_type {
         T value;
         auto get_return_object() {return coro_handle_t::from_promise(*this) ;}
@@ -24,7 +24,7 @@ struct Task {
     }
     coro_handle_t coroutine_h;
     T get_value() { 
-        coroutine_h.promise().value;
+        return coroutine_h.promise().value;
     }
 };
     
