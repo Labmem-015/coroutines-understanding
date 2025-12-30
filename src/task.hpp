@@ -30,7 +30,10 @@ struct Task {
             this->value = value;
         }
         
-        void unhandled_exception() { std::print("Unhandled exception caught in the coroutine!"); }
+        void unhandled_exception() {
+            std::print("Unhandled exception caught in the coroutine!"); 
+            std::terminate();
+        }
     };
 
     Task(coro_handle_t handle) : coroutine_h(handle) { std::print("Task object is created!"); }

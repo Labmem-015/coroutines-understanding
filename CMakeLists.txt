@@ -18,7 +18,7 @@ if(NOT DEFINED ENV{VCPKG_ROOT})
 endif()
 
 
-add_executable(ex1 src/main.cpp)
+add_executable(ex1 src/example1.cpp)
 target_precompile_headers(ex1 PUBLIC src/main.hpp)
 
 find_package(nlohmann_json CONFIG REQUIRED)
