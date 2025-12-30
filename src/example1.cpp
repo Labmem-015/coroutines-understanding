@@ -1,10 +1,9 @@
-#include "awaitable.hpp"
 #include "task.hpp"
 
 using namespace simple_coro;
 
-Task<std::string> foo_coroutine() {
-    std::print("This is couroutine");
+static Task<std::string> foo_coroutine() {
+    std::print("This is couroutine with a co_return");
     co_return std::string("End of coroutine!");
 }
 

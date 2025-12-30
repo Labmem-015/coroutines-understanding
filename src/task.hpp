@@ -8,8 +8,6 @@ struct Task {
     using promise_type = Task<T>::Promise;
     using coro_handle_t = std::coroutine_handle<promise_type>;
     struct Promise {
-        T value;
-
         auto get_return_object() {
             std::print("Creating coroutine handle from promise");
             return coro_handle_t::from_promise(*this);
@@ -24,16 +22,13 @@ struct Task {
             std::print("Await on final suspention");
             return {};
         }
-        
-        void return_value(T value) {
-            std::print("Setting return value for promise_type object");
-            this->value = value;
-        }
-        
+              
         void unhandled_exception() {
             std::print("Unhandled exception caught in the coroutine!"); 
             std::terminate();
         }
+        
+        [[no_unique_address]] T value;
     };
 
     Task(coro_handle_t handle) : coroutine_h(handle) { std::print("Task object is created!"); }
@@ -46,7 +41,8 @@ struct Task {
     }
     
     coro_handle_t coroutine_h;
-    T get_value() {
+
+    T get_value() requires !void_value {
         std::print("Get the value from the promise_type object");
         return coroutine_h.promise().value;
     }

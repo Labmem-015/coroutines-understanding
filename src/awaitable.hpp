@@ -1,5 +1,7 @@
 #pragma once
 
+namespace simple_coro {
+
 template <typename T>
 struct AwaitableEntity {
     class Awaiter {};
@@ -16,3 +18,5 @@ struct AwaitableEntity {
         return {};
     }
 };
+
+} // namespace simple_coro
