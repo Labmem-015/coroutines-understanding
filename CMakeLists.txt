@@ -1,6 +1,12 @@
 cmake_minimum_required(VERSION 3.31 FATAL_ERROR)
 cmake_policy(VERSION 3.31)
 
+if(NOT DEFINED ENV{VCPKG_ROOT})
+	message(FATAL_ERROR "VCPKG_ROOT is not defined!")
+else()
+	message("VCPKG_ROOT is defined as $ENV{VCPKG_ROOT}")
+endif()
+
 # Those options may be set in the preset file
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_C_STANDARD 23)
