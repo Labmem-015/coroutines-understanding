@@ -21,5 +21,5 @@ endif()
 add_executable(ex1 src/example1.cpp)
 target_precompile_headers(ex1 PUBLIC src/main.hpp)
 
-find_package(nlohmann_json CONFIG REQUIRED)
-target_link_libraries(ex1 PUBLIC nlohmann_json::nlohmann_json)
+add_executable(ex2 src/example2.cpp)
+target_precompile_headers(ex2 PUBLIC src/main.hpp)
