@@ -1,0 +1,7 @@
+---
+ColumnLimit: 120
+LineEnding: LF
+TabWidth: 8
+IndentWidth: 4
+
+BreakTemplateDeclarations: true
